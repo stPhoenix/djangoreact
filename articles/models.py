@@ -8,3 +8,4 @@ class Article(models.Model):
     author = models.CharField(max_length=100)
     text = models.TextField(max_length=500)
     pub_date = models.DateTimeField(auto_now=True)
+    owner = models.ForeignKey('auth.User', related_name='articles', on_delete=models.CASCADE)
