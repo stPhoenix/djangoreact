@@ -12,7 +12,7 @@ class ArticleSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    articles = serializers.PrimaryKeyRelatedField(many=True, queryset=Article.objects.all())
+    articles = ArticleSerializer(many=True)
 
     class Meta:
         model = User
