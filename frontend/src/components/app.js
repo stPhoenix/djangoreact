@@ -13,6 +13,7 @@ export const App = (props) => {
             <nav>
                 <Link to="/">Home</Link>
                 <Link to="articles/">Articles</Link>
+                <Link to="auth/">Auth</Link>
             </nav>
         </header>
         <main>
@@ -20,6 +21,7 @@ export const App = (props) => {
                 <Route exact path="/" component={props.home} />
                 <Route exact path="/articles/" component={props.articles} />
                 <Route exact path="/articles/:id" component={props.article} />
+                <Route exact path="/auth/" component={props.auth} />
             </Switch>
         </main>
       </div>
