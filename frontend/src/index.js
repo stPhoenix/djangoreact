@@ -11,7 +11,9 @@ import {rootReducers} from './reducers';
 
 const store = createStore(rootReducers);
 ReactDOM.render(<Provider store={store}>
-                <AppContainer />
+                    <BrowserRouter>
+                        <AppContainer />
+                    </BrowserRouter>
                 </Provider>
                 , document.getElementById('root'));
 registerServiceWorker();

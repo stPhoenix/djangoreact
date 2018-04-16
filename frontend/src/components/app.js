@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '../logo.svg';
 import './App.css';
+import {Switch, Route, Link} from 'react-router-dom';
+
 
 export const App = (props) => {
     return (
@@ -8,9 +10,17 @@ export const App = (props) => {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
+            <nav>
+                <Link to="/">Home</Link>
+                <Link to="articles/">Articles</Link>
+            </nav>
         </header>
         <main>
-            {props.children}
+            <Switch>
+                <Route exact path="/" component={props.home} />
+                <Route exact path="/articles/" component={props.articles} />
+                <Route exact path="/articles/:id" component={props.article} />
+            </Switch>
         </main>
       </div>
     );
