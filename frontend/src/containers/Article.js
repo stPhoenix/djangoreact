@@ -6,9 +6,7 @@ import {Article} from '../components/article';
 class ArticleContainer extends Component{
     render(){
         const id = this.props.match.params.id;
-        console.log(id)
         const articles = this.props.articles;
-        console.log(articles);
         return (
                 <div>
                 {articles.map(article => {

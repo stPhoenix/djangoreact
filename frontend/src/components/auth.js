@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-export const Auth = ({isAuthenticated, user, login, username, password, handleChange}) => {
+export const Auth = ({isAuthenticated, user={username:'No user'}, login, username, password, handleChange}) => {
     return (<div>Auth page
-                {isAuthenticated ? <p>Hello: {user.name}</p>
+                {isAuthenticated ? <p>Hello: {user.username}</p>
                                  : <div>Please login:
                                     <form onSubmit={login}>
                                         <input type="text" name="username" onChange={handleChange} value={username}/>

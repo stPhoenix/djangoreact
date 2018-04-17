@@ -5,11 +5,22 @@ import AppContainer from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {rootReducers} from './reducers';
 
+const logger = store => next => action => {
+  console.group(action.type)
+  console.info('dispatching', action)
+  let result = next(action)
+  console.log('next state', store.getState())
+  console.groupEnd(action.type)
+  return result
+}
 
-const store = createStore(rootReducers);
+const store = createStore(rootReducers, applyMiddleware(logger));
+
+console.log(store.getState());
+
 ReactDOM.render(<Provider store={store}>
                     <BrowserRouter>
                         <AppContainer />

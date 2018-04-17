@@ -6,6 +6,6 @@ export const auth = (state={isAuthenticated:false}, action) => {
             return {isAuthenticated: true, token: action.token};
         case "LOGOUT":
         default:
-            return {isAuthenticated: false};
+            return state;
     }
 }

@@ -8,7 +8,7 @@ import {login, logout, storeUser} from '../actions';
 class AuthContainer extends Component{
     constructor(props){
         super(props);
-        this.state = {username:"Username", password:"Password"};
+        this.state = {username:"john", password:"qwerty1234"};
         this.login = this.login.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
@@ -35,8 +35,9 @@ class AuthContainer extends Component{
         .catch(error => (console.error(error)))  
     };
     render(){
-        return(<Auth isAuthenticated={this.props.isAuthenticated}
-                     user={this.props.user}
+        const {isAuthenticated, user} = this.props.auth;
+        return(<Auth isAuthenticated={isAuthenticated}
+                     user={user}
                      login={this.login}
                      username={this.state.username}
                      password={this.state.password}

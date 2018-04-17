@@ -12,16 +12,16 @@ export const App = (props) => {
           <h1 className="App-title">Welcome to React</h1>
             <nav>
                 <Link to="/">Home</Link>
-                <Link to="articles/">Articles</Link>
-                <Link to="auth/">Auth</Link>
+                <Link to="articles" replace>Articles</Link>
+                <Link to="auth">Auth</Link>
             </nav>
         </header>
         <main>
             <Switch>
                 <Route exact path="/" component={props.home} />
-                <Route exact path="/articles/" component={props.articles} />
+                <Route exact path="/articles" component={props.articles} />
                 <Route exact path="/articles/:id" component={props.article} />
-                <Route exact path="/auth/" component={props.auth} />
+                <Route exact path="/auth" component={props.auth} />
             </Switch>
         </main>
       </div>
