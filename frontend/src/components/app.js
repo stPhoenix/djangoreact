@@ -12,8 +12,8 @@ export const App = (props) => {
           <h1 className="App-title">Welcome to React</h1>
             <nav>
                 <Link to="/">Home</Link>
-                <Link to="articles" replace>Articles</Link>
-                <Link to="auth">Auth</Link>
+                <Link to="/articles">Articles</Link>
+                <Link to="/auth">Auth</Link>
             </nav>
         </header>
         <main>

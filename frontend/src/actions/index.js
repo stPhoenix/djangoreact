@@ -9,6 +9,10 @@ export const getArticles = articles => ({
     articles,
 });
 
+export const deleteArticle = id => ({
+    type: "DELETE_ARTICLE",
+    id,
+});
 
 export const login = (token) => ({
    type: "LOGIN",
