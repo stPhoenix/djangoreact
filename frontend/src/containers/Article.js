@@ -2,21 +2,20 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Article} from '../components/article';
 import {deleteArticle} from '../actions';
-import {Redirect} from 'react-router'
 import axios from 'axios';
 
 
 class ArticleContainer extends Component{
     constructor(props){
         super(props);
+        this.state = {redirect: false};
         this.deleteArticle = this.deleteArticle.bind(this);
     }
     deleteArticle(id){
-        return axios.delete(`http://127.0.0.1:8000/articles/${id}`, {headers:{AUTHORIZATION:`TOKEN ${this.props.auth.token}`}})
+        axios.delete(`http://127.0.0.1:8000/articles/${id}`, {headers:{AUTHORIZATION:`TOKEN ${this.props.auth.token}`}})
         .then(res => {
                         console.log(res)
                         this.props.deleteArticle(id);
-                        return (<Redirect to="/articles" />);
                     })
         .catch(error => (console.error(error)))
     }
@@ -27,7 +26,7 @@ class ArticleContainer extends Component{
         return (
                 <div>
                 {articles.map(article => {
-                    return(article.id == id ? <Article key={id} {...article} username={username} deleteArticle={this.deleteArticle}/>
+                    return(article.id == id ? <Article key={id} {...article} username={username} deleteArticle={this.deleteArticle} redirect={this.state.redirect}/>
                                       : console.log(`not found id ${article.id}`)
                            );
                 })}

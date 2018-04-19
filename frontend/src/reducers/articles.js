@@ -5,10 +5,7 @@ export const articles = (state = [], action) => {
         case "GET_ARTICLES":
             return [...action.articles];
         case "DELETE_ARTICLE":
-            return state.map(article => {
-                return article.id == action.id ? null
-                                              : article
-            });
+            return state.filter(article => article.id != action.id);
         default:
             return state;
     }

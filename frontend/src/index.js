@@ -7,6 +7,8 @@ import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import {rootReducers} from './reducers';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const logger = store => next => action => {
   console.group(action.type)

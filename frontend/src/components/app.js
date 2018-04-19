@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../logo.svg';
 import './App.css';
 import {Switch, Route, Link} from 'react-router-dom';
+import {Nav, NavItem, NavLink} from 'reactstrap';
 
 
 export const App = (props) => {
@@ -10,11 +11,11 @@ export const App = (props) => {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
-            <nav>
-                <Link to="/">Home</Link>
-                <Link to="/articles">Articles</Link>
-                <Link to="/auth">Auth</Link>
-            </nav>
+            <Nav pills>
+                <NavItem><NavLink tag={Link} to="/" active>Home</NavLink></NavItem>
+                <NavItem><NavLink tag={Link} to="/articles">Articles</NavLink></NavItem>
+                <NavItem><NavLink tag={Link} to="/auth">Auth</NavLink></NavItem>
+            </Nav>
         </header>
         <main>
             <Switch>
